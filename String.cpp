@@ -116,3 +116,40 @@
 // }
 
 
+
+
+// Get max Occerrence
+#include<iostream>  
+using namespace std;
+
+char getMaxOccurence(string a){
+
+    int arr[26] = {0};
+
+    for(int i=0; i<a.length(); i++){
+    char ch = a[i];
+    //lowercase
+    int number = 0;
+    number = ch - 'a';
+    arr[number]++;
+    }
+//Find amximum occ char
+int maxi = -1, ans = 0;
+for(int i=0; i<26; i++){
+    if(maxi < arr[i]){
+        ans = i;
+        maxi = arr[i];
+    }
+}
+
+char finalAns = 'a' + ans;
+return finalAns;
+}
+
+int main(){
+    string s;
+    cout<<"Enter a string: ";
+    cin>>s;
+
+    cout<<getMaxOccurence(s);
+}
